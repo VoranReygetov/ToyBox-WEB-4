@@ -18,11 +18,9 @@
 html, body {
     margin: 0;
     font-family: "Tilt Neon", sans-serif;
-    min-height: 100%;
-
 }
 
-h1, h2, p, li, ul, table{
+h1, h2, h3, h4, p, li, ul, table{
     margin: 0;
     padding: 0;
 }
@@ -56,25 +54,57 @@ a:hover{
     top: 0;
     z-index: 100;
     display: block;
+    background: linear-gradient(rgba(195, 255, 193, 0.7), rgba(117, 153, 116, 0.7));
+    backdrop-filter: blur(12px);
 }
 
 .layout{
-    background: linear-gradient(rgba(195, 255, 193, 0.7), rgba(117, 153, 116, 0.7));
-    backdrop-filter: blur(12px);
     display: flex;
     align-items: center;
-    padding: 0 40px;
+    box-sizing:border-box;
+    display:block;
+    margin:0 auto;
+    max-width:1600px;
+    padding-left:8px;
+    padding-right:8px;
+    width:100%;
+}
+
+@media (min-width: 768px) {
+    .layout {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .layout {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .layout {
+      padding-left: 32px;
+      padding-right: 32px;
+    }
 }
 
 .header-layout{
     position: relative;
-    height: 80px;
+    height: 52px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 100%;
-    max-width: 1800px;
+    max-width: 1600px;
     margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+    .header-layout {
+        height: 80px;
+    }
 }
 
 .box-logo-search-bar{
@@ -93,14 +123,30 @@ a:hover{
     align-items: center;
 }
 
+#logo-text{
+    display: none;
+}
+
+@media (min-width: 768px) {
+    #logo-text {
+        display: block;
+    }
+}
+
 .box-user-icons{
     flex:1;
     justify-content: space-between;
 }
 .main-icon {
-    height: 72px;
+    height: 48px;
     margin: 4px;
 }
+@media (min-width: 1024px) {
+    .main-icon {
+        height: 72px;
+    }
+}
+
 .bg-small-icons {
     background: var(--color-background-dark);
     display: inline-block;
@@ -144,7 +190,7 @@ a:hover{
 
 .search-bar {
     background: var(--color-background-light);
-    width: 70%;
+    width: 100%;
     position: relative;
     display: flex;
     flex-direction: row;
@@ -156,6 +202,11 @@ a:hover{
     border-right-width: medium;
     border-radius: 12px 0 0 12px;
     border-right-width: 0px;
+}
+@media (min-width: 1024px) {
+    .search-bar {
+        width: 70%;
+    }
 }
 
 .button-search {
@@ -173,9 +224,15 @@ a:hover{
 }
 
 .header-actions{
-    display: flex;
+    display: none;
     flex-direction: row;
     align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .header-actions {
+        display: flex;
+    }
 }
 
 .header-actions__item {
@@ -210,7 +267,6 @@ a:hover{
 .layout_with_sidebar{
     display: flex;
     flex-direction: row;
-    padding: 0 20px;
     box-sizing: border-box;
     margin: 0 auto;
     max-width: 1600px;
@@ -323,6 +379,7 @@ a:hover{
     height: 500px;
     object-fit: cover;
     width: inherit;
+    display: block;
 }
 
 .buttons{
@@ -538,6 +595,7 @@ a:hover{
 .footer-container{
     max-width: 1800px;
     padding: 8px;
+    padding-bottom: 60px;
     display: flex;
     width: calc(100% - 80px);
     margin: 0 auto;
@@ -545,6 +603,12 @@ a:hover{
     color: var(--color-footer-text);
     justify-content: space-between;
 }
+@media (min-width: 1024px) {
+    .footer-container {
+      padding-bottom: 0px;
+    }
+}
+
 .footer-contacts{
     box-sizing: border-box;
 }
@@ -563,4 +627,29 @@ a:hover{
 .footer-list-contacts li:hover{
     background: rgba(0, 0, 0, 0.4);
     border-radius: 30%;
+}
+
+.layout_mobile_control{
+    background: hsla(0,0%,100%,.698);
+    backdrop-filter: blur(10px);
+    height: 60px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    z-index: 100;
+    justify-content: center;
+}
+
+@media (min-width: 1024px) {
+    .layout_mobile_control {
+      display: none;
+    }
+}
+
+.layout_mobile_control ul{
+    list-style: none;
+    display: flex;
+    align-items: center;
 }
