@@ -512,12 +512,12 @@ a:hover{
     grid-template-columns: repeat(2, 1fr);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1280px){
     .main-goods__grid {
     grid-template-columns: repeat(4, 1fr); /* 4 columns */
     }
 }
-@media (min-width: 1280px) {
+@media (min-width: 1280px) and (max-width: 1440px){
     .main-goods__grid {
       grid-template-columns: repeat(5, 1fr); /* 5 columns */
     }
@@ -679,7 +679,7 @@ a:hover{
 }
 .button_type_link:hover{
     cursor: pointer;
-    color:tomato;
+    color: var(--color-hover-primary);
 }
 
 .footer{
