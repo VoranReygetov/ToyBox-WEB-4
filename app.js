@@ -64,3 +64,24 @@ window.addEventListener('resize', () => {
 });
 
 setItemWidth();
+
+function toggleMenu() {
+    var menu = document.getElementById("menu-categories");
+    menu.classList.toggle("show");
+}
+
+function fetchJSONData() {
+    fetch('data.json') // Path to the JSON file
+      .then(response => {
+        return response.json(); // Parse the JSON from the response
+      })
+      .then(data => {
+        // Data is the parsed JSON object
+        createMenu(data); // Use the data to create the menu
+      })
+      .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+      });
+}
+
+let goods_lists = document.getElementsByClassName('main-goods__grid');
