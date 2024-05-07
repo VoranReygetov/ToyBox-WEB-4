@@ -1,9 +1,9 @@
 let list = document.querySelector('.slider .list');
 let items = document.querySelectorAll('.slider .list .item');
-let dots = document.querySelectorAll('.slider .dots li');
+
 let prev = document.getElementById('prev');
 let next = document.getElementById('next');
-
+let dots_list = document.getElementById('dots-list');
 let active = 0;
 let lenghtItems = items.length-1;
 
@@ -29,6 +29,24 @@ prev.onclick = function(){
 }
 let refreshSlider = setInterval(()=>{next.click()}, 3000)
 
+
+// Забезпечити, щоб кількість точок відповідала кількості елементів
+items.forEach((item, key) => {
+    const dot = document.createElement('li');
+    dots_list.appendChild(dot); 
+  
+    dot.addEventListener('click', () => {
+      active = key;
+      reloadSlider();
+    });
+  
+    if (key === 0) {
+      dot.classList.add('active');
+    }
+  });
+
+let dots = document.querySelectorAll('.slider .dots li');
+
 function reloadSlider(){
     let checkleft = items[active].offsetLeft;
     list.style.left = -checkleft + 'px';
@@ -38,13 +56,7 @@ function reloadSlider(){
     clearInterval(refreshSlider);
     refreshSlider = setInterval(()=>{next.click()}, 3000)
 }
-
-dots.forEach((li, key) => {
-    li.addEventListener('click', function(){
-        active = key;
-        reloadSlider();
-    })
-})
+  
 
 let slider = document.getElementById('slider');
 
