@@ -51,7 +51,6 @@ let slider = document.getElementById('slider');
 function setItemWidth() {
     // Set each item's width to the width of the slider container
     const listWidth = slider.clientWidth; // Get the width of the parent container
-    console.log(listWidth);
     items.forEach(item => {
         item.style.width = listWidth + 'px';
     });
